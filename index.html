@@ -17,8 +17,8 @@
         <li><a href="#beranda">Beranda</a></li>
         <li><a href="#profil">Profil</a></li>
         <li><a href="#pengurus">Pengurus</a></li>
-        <li><a href="#">Acara</a></li>
-        <li><a href="#">Informasi Desa</a></li>
+        <li><a href="#acara">Acara</a></li>
+        <li><a href="#galeri">Galeri</a></li>
       </ul>
     </nav>
   </header>
@@ -55,40 +55,141 @@
     </div>
   </section>
 
-  <section id="pengurus" class="pengurus-section">
+<section id="pengurus" class="profil-pengurus">
+  <div class="profil-header">
     <h2>Struktur Pengurus</h2>
-    <div class="pengurus-grid limited" id="pengurusGrid">
-      <!-- Contoh 3 seksi awal -->
-      <div class="pengurus-card">
-        <h3>Ketua</h3>
-        <ul><li>Dimas</li></ul>
+    <p class="slogan">Manggalai • Meriti • Makarya</p>
+  </div>
+
+  <div class="pengurus-grid">
+    <div class="pengurus-card">
+      <img src="https://img-cdn.medkomtek.com/IV1W_mcOx9M79-v2zMveBid70xE=/510x395/smart/filters:quality(100):format(webp)/article/SYWcOyU3eEzXzo_253fYl/original/1661919765-Mengapa%20Orang%20Mudah%20Marah.jpg" alt="Dimas" />
+      <div class="blur-label">
+        <h4>Dimas</h4>
+        <p>Ketua</p>
       </div>
-      <div class="pengurus-card">
-        <h3>Wakil</h3>
-        <ul><li>Expa</li></ul>
-      </div>
-      <div class="pengurus-card">
-        <h3>Sekretaris</h3>
-        <ul><li>Risa</li><li>Dea</li></ul>
-      </div>
-      <!-- Sisanya akan disembunyikan dulu -->
-      <div class="pengurus-card hidden">
-        <h3>MC</h3>
-        <ul><li>Aldo</li><li>Vita</li></ul>
-      </div>
-      <div class="pengurus-card hidden">
-        <h3>Bendahara</h3>
-        <ul><li>Fanny</li></ul>
-      </div>
-      <!-- Tambahkan semua seksi lain sebagai .hidden -->
     </div>
-    <button id="toggleBtn">Lihat Semua</button>
-  </section>
 
+    <div class="pengurus-card">
+      <img src="/ARKANANTA/aset/img/expa.jpg" alt="Expa" />
+      <div class="blur-label">
+        <h4>Expa</h4>
+        <p>Wakil</p>
+      </div>
+    </div>
 
-  <footer>
+    <div class="pengurus-card">
+      <img src="/ARKANANTA/aset/img/risa.jpg" alt="Risa & Dea" />
+      <div class="blur-label">
+        <h4>Risa & Dea</h4>
+        <p>Sekretaris</p>
+      </div>
+    </div>
+
+    <div class="pengurus-card">
+      <img src="/ARKANANTA/aset/img/fanny.jpg" alt="Fanny" />
+      <div class="blur-label">
+        <h4>Fanny</h4>
+        <p>Bendahara</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="acara" class="acara-section">
+  <h2>Susunan Acara</h2>
+
+  <div class="filter-form">
+    <input type="date" id="filterTanggal" />
+    <input type="text" id="filterTagar" placeholder="Cari tagar (#kebersihan, #budaya)" />
+    <button onclick="filterAcara()">Filter</button>
+  </div>
+
+  <div class="acara-list" id="acaraList">
+    <div class="acara-card" data-tanggal="2025-09-05" data-tagar="#budaya">
+      <h3>Festival Budaya Desa</h3>
+      <p>📅 5 September 2025</p>
+      <p>#budaya</p>
+    </div>
+
+    <div class="acara-card" data-tanggal="2025-09-10" data-tagar="#kebersihan">
+      <h3>Kerja Bakti Lingkungan</h3>
+      <p>📅 10 September 2025</p>
+      <p>#kebersihan</p>
+    </div>
+
+    <div class="acara-card" data-tanggal="2025-09-15" data-tagar="#edukasi">
+      <h3>Pelatihan Kepemimpinan</h3>
+      <p>📅 15 September 2025</p>
+      <p>#edukasi</p>
+    </div>
+  </div>
+</section>
+
+<section id="galeri" class="galeri-section">
+  <h2>Galeri Kegiatan</h2>
+
+  <div class="galeri-filter">
+    <input type="text" id="filterTagar" placeholder="Cari tagar (#budaya, #kebersihan)" />
+    <button onclick="filterGaleri()">Filter</button>
+  </div>
+
+  <div class="galeri-grid" id="galeriGrid">
+    <div class="galeri-item" data-tagar="#budaya">
+      <img src="/ARKANANTA/aset/img/BG beranda.png" alt="Festival Budaya" />
+      <p>#budaya</p>
+    </div>
+    <div class="galeri-item" data-tagar="#kebersihan">
+      <img src="/ARKANANTA/aset/img/foto2.jpg" alt="Kerja Bakti" />
+      <p>#kebersihan</p>
+    </div>
+    <div class="galeri-item" data-tagar="#edukasi">
+      <img src="/ARKANANTA/aset/img/foto3.jpg" alt="Pelatihan" />
+      <p>#edukasi</p>
+    </div>
+    <!-- Tambahkan lebih banyak item sesuai dokumentasi -->
+  </div>
+
+  <!-- Modal Preview -->
+  <div class="modal-preview" id="modalPreview">
+    <span class="close-btn" onclick="closeModal()">×</span>
+    <img id="modalImage" src="" alt="Preview" />
+  </div>
+</section>
+
+  <footer class="footer-section">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="/ARKANANTA/aset/img/logo.jpg" alt="Logo Arkananta" />
+      <h3>Karang Taruna Arkananta Muda</h3>
+      <p class="slogan">Manggalai • Meriti • Makarya</p>
+    </div>
+
+    <div class="footer-info">
+      <h4>Alamat Desa</h4>
+      <p>Dusun Kebonagung, Desa X, Kecamatan Bawen, Kabupaten Semarang, Jawa Tengah 50661</p>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Kontak Admin</h4>
+      <p>📞 0812-3456-7890</p>
+      <p>📧 arkanantamuda@gmail.com</p>
+    </div>
+
+    <div class="footer-social">
+      <h4>Media Sosial</h4>
+      <ul>
+        <li><a href="https://instagram.com/arkanantamuda" target="_blank">Instagram</a></li>
+        <li><a href="https://facebook.com/arkanantamuda" target="_blank">Facebook</a></li>
+        <li><a href="https://tiktok.com/@arkanantamuda" target="_blank">TikTok</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
     <p>&copy; 2025 Arkananta Muda. Semua hak dilindungi.</p>
-  </footer>
+  </div>
+</footer>
 
   <script src="/ARKANANTA/aset/Script.js"></script>
 </body>
